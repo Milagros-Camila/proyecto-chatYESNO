@@ -11,7 +11,6 @@ const apiYesNo= "https://yesno.wtf/api"
             method: 'GET'
         });
         const data = await respuesta.json();
-        console.log('data');
         console.log(data);
         // console.log(data.answer)
         // agregarMensaje(data.answer, data.answer=='no'?true:false);// agregamos esto cl chat api YES NO
