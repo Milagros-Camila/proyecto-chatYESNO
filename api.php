@@ -2,7 +2,7 @@
 header ("Access-Control-Allow-Origin: *");
 
 
-$metodo = $_SERVER['REQUEST_METHOD']; //metodo
+$metodo = $_SERVER['REQUEST_METHOD']; 
 
 $respuesta = [];
 switch ($metodo) {
@@ -12,7 +12,7 @@ switch ($metodo) {
     ];
         break;
     case 'POST':
-        $data_entrante = json_decode(file_get_contents("php://input"),true); //convertimos de JSON a ARRAY, su funcion es capturar el body
+        $data_entrante = json_decode(file_get_contents("php://input"),true);
         $respuesta = ['mesaje' =>'Metodo POST de retorno',
         'data' => $data_entrante,
         ];
@@ -24,11 +24,10 @@ switch ($metodo) {
         ];
         break;
     case 'DELETE':
-        // Captura los datos enviados en la solicitud DELETE
         $input = json_decode(file_get_contents("php://input"), true);
         $respuesta = [
             'mensaje' => 'Método DELETE correcto',
-            'data' => $input ? $input : $_GET  // Captura del cuerpo o parámetros de la URL
+            'data' => $input ? $input : $_GET  
         ];
         break;
     
@@ -37,5 +36,5 @@ switch ($metodo) {
         break;
 }
     
-    echo json_encode($respuesta);  // Envía la respuesta en formato JSON
+    echo json_encode($respuesta);
     ?>
